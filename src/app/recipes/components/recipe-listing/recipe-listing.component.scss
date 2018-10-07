@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+}
+.menu-bar {
+  position: absolute;
+  right: 60px;
+  color: rgb(255, 255, 255);
+  background-color: #ff4081;
+}
+
+.mat-table {
+
+  overflow: auto;
+  max-height: 500px;
+}
+.table-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+  position: relative;
+}

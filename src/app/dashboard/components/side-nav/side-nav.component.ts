@@ -10,7 +10,7 @@ export class SideNavComponent implements OnInit {
 
   private mediaMatcher: MediaQueryList = matchMedia(`(max-width : ${MAX_WIDTH_BREAKPOINT}px)`);
   links = [{
-    name: 'Recipe',
+    name: 'Recipes',
     url: 'recipes'
   },
   {

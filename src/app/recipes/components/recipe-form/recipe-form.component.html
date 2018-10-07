@@ -1,0 +1,27 @@
+<mat-card>
+  <h3>Create Recipe</h3>
+  {{this.recipeForm.value | json}}
+  <form class="form-container" [formGroup]="recipeForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Item" formControlName="item">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="type" formControlName="type">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="cousine" formControlName="cousine">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="ingredients" formControlName="ingredients">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="rate" formControlName="rate">
+    </mat-form-field>
+    <div>
+      <button mat-raised-button type="submit" color="accent">Save</button>
+      <button mat-raised-button type="reset">Cancel</button>
+    </div>
+  </form>
+
+</mat-card>
