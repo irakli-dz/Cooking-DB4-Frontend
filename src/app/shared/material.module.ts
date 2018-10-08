@@ -11,7 +11,8 @@ import {MatButtonModule,
        MatMenuModule,
        MatFormFieldModule,
        MatInputModule,
-       MatSnackBarModule} from '@angular/material';
+       MatSnackBarModule,
+       MatPaginatorModule} from '@angular/material';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 
@@ -27,7 +28,8 @@ const exportedMatModules = [
   MatMenuModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSnackBarModule];
+  MatSnackBarModule,
+MatPaginatorModule];
 
 
 @NgModule({

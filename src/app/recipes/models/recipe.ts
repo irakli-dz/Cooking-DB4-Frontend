@@ -8,3 +8,11 @@ export class Recipe {
   ingredients: string [];
 
 }
+
+export class RecipePaginationRsp {
+  docs: Recipe[];
+  total: number;
+  pages: number;
+  page: number;
+  limit: number;
+}

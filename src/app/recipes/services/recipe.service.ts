@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Recipe } from '../models/recipe';
+import { Recipe, RecipePaginationRsp } from '../models/recipe';
 
 
 const BASE_URL = 'http://localhost:3001/api';
@@ -12,8 +12,8 @@ export class RecipeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getRecipes() : Observable<Recipe[]> {
-    return this.httpClient.get<Recipe[]>(`${BASE_URL}/recipes`);
+  getRecipes({page, perPage}): Observable<RecipePaginationRsp> {
+    return this.httpClient.get<RecipePaginationRsp>(`${BASE_URL}/recipes?page=${page}&parPage=${perPage}`);
   }
 
   createRecipe(body: Recipe): Observable<Recipe> {

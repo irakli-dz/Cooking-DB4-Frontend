@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { RecipeService } from "../../services/recipe.service";
 import { Recipe } from "../../models/recipe";
 import { Router } from "@angular/router";
-import { MatSnackBar } from "@angular/material";
+import { MatSnackBar, MatPaginator } from "@angular/material";
 import {remove} from 'lodash';
 
 @Component({
@@ -19,6 +19,9 @@ export class RecipeListingComponent implements OnInit {
 
   displayedColumns: string[] = ['item', 'type', 'cousine', 'rate', 'action'];
   dataSource: Recipe[] = [];
+  resultsLenght = 0;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   saveBtnHandler() {
     this.router.navigate(['dashboard', 'recipes', 'new']);
@@ -46,9 +49,27 @@ export class RecipeListingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.recipeService.getRecipes().subscribe(
+    this.paginator.page
+    .subscribe(data => {
+      this.recipeService.getRecipes({page: ++data.pageIndex, perPage: data.pageSize})
+      .subscribe(data => {
+        console.log(data);
+        this.dataSource = data.docs;
+        this.resultsLenght = data.total;
+      });   
+    },
+    err => {
+      this.errorHandler(err, 'Faield to fetch recipes');
+      console.log(err);
+    });
+   this.populateRecipes();
+  }
+
+  private populateRecipes() {
+    this.recipeService.getRecipes({page: 1, perPage: 10}).subscribe(
       data => {
-        this.dataSource = data;
+        this.dataSource = data.docs;
+        this.resultsLenght = data.total;        
         console.log(data);
      },
       err => {
