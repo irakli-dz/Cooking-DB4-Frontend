@@ -20,6 +20,10 @@ const routes: Routes = [
         component: RecipeFormComponent
       },
       {
+        path: "recipes/:id",
+        component: RecipeFormComponent
+      },
+      {
         path: "cousines",
         component: CousineListingComponent
       },

@@ -1,8 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {MatButtonModule, MatCheckboxModule, MatIconModule, MatToolbarModule, MatListModule, MatCardModule, MatTableModule, MatMenuModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatButtonModule,
+      MatCheckboxModule,
+       MatIconModule,
+       MatToolbarModule,
+       MatListModule,
+       MatCardModule,
+       MatTableModule,
+       MatMenuModule,
+       MatFormFieldModule,
+       MatInputModule,
+       MatSnackBarModule} from '@angular/material';
+
 import {MatSidenavModule} from '@angular/material/sidenav';
+
 const exportedMatModules = [
   MatButtonModule,
   MatCheckboxModule,
@@ -14,7 +26,8 @@ const exportedMatModules = [
   MatTableModule,
   MatMenuModule,
   MatFormFieldModule,
-  MatInputModule];
+  MatInputModule,
+  MatSnackBarModule];
 
 
 @NgModule({

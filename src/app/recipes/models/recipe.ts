@@ -1,6 +1,6 @@
 export class Recipe {
 
-  _id: number;
+  _id: string;
   item: string;
   type: string;
   cousine: string;
